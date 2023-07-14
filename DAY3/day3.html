@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day3-Task</title>
+</head>
+<body>
+    <script>
+        function getUniqueEntries(object) {
+  const uniqueMarks = {};
+  const result = {};
+
+  for (const key in object) {
+    const entry = object[key];
+    const mark = entry.marks;
+
+    if (!(mark in uniqueMarks) || entry.age < uniqueMarks[mark].age) {
+      uniqueMarks[mark] = entry;
+    }
+  }
+
+  let newIndex = 0;
+  for (const mark in uniqueMarks) {
+    result[newIndex] = uniqueMarks[mark];
+    newIndex++;
+  }
+
+  return result;
+}
+
+const inputObject = {
+  "0": { age: 18, name: "john", marks: "400" },
+  "1": { age: 17, name: "julie", marks: "400" },
+  "2": { age: 16, name: "Robin", marks: "200" },
+  "3": { age: 16, name: "Bella", marks: "300" },
+};
+
+const resultObject = getUniqueEntries(inputObject);
+console.log(resultObject);
+
+    </script>
+    
+</body>
+</html>
